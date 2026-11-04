@@ -6,13 +6,11 @@ async function request<T>(
 ): Promise<T> {
   const token = localStorage.getItem("access_token")
 
-  const headers: HeadersInit = {
-    "Content-Type": "application/json",
-    ...options.headers,
-  }
+  const headers = new Headers({ "Content-Type": "application/json" })
+  new Headers(options.headers).forEach((value, key) => headers.set(key, value))
 
   if (token) {
-    headers["Authorization"] = `Bearer ${token}`
+    headers.set("Authorization", `Bearer ${token}`)
   }
 
   const response = await fetch(`${API_BASE}${endpoint}`, {

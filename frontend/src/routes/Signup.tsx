@@ -85,8 +85,8 @@ export default function Signup() {
 
           <Text textAlign="center" fontSize="sm">
             Already have an account?{" "}
-            <ChakraLink as={Link} to="/login" color="blue.500">
-              Login
+            <ChakraLink asChild color="blue.500">
+              <Link to="/login">Login</Link>
             </ChakraLink>
           </Text>
         </Stack>
