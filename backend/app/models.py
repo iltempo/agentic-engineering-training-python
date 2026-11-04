@@ -94,4 +94,4 @@ class Token(SQLModel):
 
 
 class TokenPayload(SQLModel):
-    sub: str | None = None
+    sub: uuid.UUID | None = None
